@@ -116,6 +116,18 @@ DECL_PORT(srv) {
                 handler = port_handle_cfg;
             } else if (IS("y2r:u")) {
                 handler = port_handle_y2r;
+            } else if (IS("ndm:u")) {
+                handler = port_handle_ndm;
+            } else if (IS("ptm:u")) {
+                handler = port_handle_ptm;
+            } else if (IS("news:u")) {
+                handler = port_handle_news;
+            } else if (IS("am:app")) {
+                handler = port_handle_am;
+            } else if (IS("nim:aoc")) {
+                handler = port_handle_nim;
+            } else if (IS("ldr:ro")) {
+                handler = port_handle_ldr;
             } else {
                 lerror("unknown service '%.8s'", name);
                 u32 handle = handle_new(s);

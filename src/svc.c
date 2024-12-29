@@ -461,13 +461,17 @@ DECL_SVC(GetProcessInfo) {
 
     R(0) = 0;
     switch (type) {
+        case 0x02:
+            R(1) = s->process.used_memory; // not right
+            R(2) = 0;
+            break;
         case 0x14: // linear memory address conversion
             R(1) = FCRAM_PBASE - LINEAR_HEAP_BASE;
             R(2) = 0;
             break;
         default:
             R(0) = -1;
-            lerror("unknown process info");
+            lerror("unknown process info (%02x)", type);
             break;
     }
 }
